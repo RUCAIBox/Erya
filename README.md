@@ -1,5 +1,5 @@
 # Erya
-This repository is the official implementation of our paper: Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation.
+This repository is the official implementation of our paper: *Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation*.
 
 ## Datasets
 
@@ -17,8 +17,8 @@ After downloading the dataset and the Erya model, you can use the Erya to genera
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
 
-tokenizer = BertTokenizer.from_pretrained("erya_zeroshot")
-model = CPTForConditionalGeneration.from_pretrained("erya_zeroshot")
+tokenizer = BertTokenizer.from_pretrained("RUCAIBox/Erya")
+model = CPTForConditionalGeneration.from_pretrained("RUCAIBox/Erya")
 
 input_ids = tokenizer("安世字子孺，少以父任为郎。", return_tensors='pt')
 input_ids.pop("token_type_ids")
