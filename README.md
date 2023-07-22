@@ -1,18 +1,38 @@
 # Erya
-This repository is the official implementation of our paper: *Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation*.
+This repository is the official implementation of our paper: **Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation**, based on our text generation library TextBox 2.0.
+
+## Introduction
+- We collect, clean, and classify ancient Chinese materials from various sources, forming the most extensive ancient Chinese resource Erya to date.
+- We devise Erya training method oriented towards ancient Chinese, composing two jointly-working tasks: disyllabic aligned substitution (DAS) and dual masked language model (DMLM).
+- We build a benchmark to judge ancient Chinese translation quality in different scenarios and evaluate the ancient Chinese translation capacities of various existing models.
+
 
 ## Datasets
 
-You can download our Erya dataset and benchmark in: https://drive.google.com/drive/folders/1YjKjvjhzwE3QeCHn39yksCIyNMUVGP6M?usp=sharing.
+You can download Erya datasets in: https://huggingface.co/RUCAIBox. You should create a folder dataset and download dataset such as xint in it.
 
-## Model Weights
+To be specific, the datasets and their corresponding title are:
 
-The pre-trained weights of Erya can be downloaded here: https://drive.google.com/drive/folders/1VV7DFABVGtRCDwJxWK1hzLWSy7Fn_E_X?usp=share_link .
+- hans: Book of han
+- mings: Ming History
+- shij: Shi Ji
+- taip: Taiping Guangji
+- xint: New Tang History
+- xux: Xu Xiake's Travels
 
 
-## Fine-tuning and Evaluation
+## Fine-tuning, Inference and Evaluation
+After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
 
-After downloading the dataset and the Erya model, you can use the Erya to generate translation as the following example.
+### Training
+```
+python run_textbox.py --model=CPT --dataset=trans --pretrain_task=para --model_path=fnlp/cpt --epochs=[epoch_nums] --uni_weight=0.7 --bi_weight=0.3
+```
+`uni_weight` can be the weight of DAS loss, and `bi_weight` can be the weight of DMLM loss.
+
+
+### Inference
+We have released Erya model in HuggingFace, which you can use to generate translation as the following example.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
