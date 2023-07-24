@@ -9,7 +9,7 @@ This repository is the official implementation of our paper: **Towards Effective
 
 ## Datasets
 
-You can download Erya datasets in: https://huggingface.co/RUCAIBox. You should create a folder dataset and download dataset such as xint in it.
+You can download Erya datasets in: https://huggingface.co/RUCAIBox. You should download datasets such as xint in it and place them in the `dataset` folder.
 
 To be specific, the datasets and their corresponding title are:
 
