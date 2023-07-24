@@ -9,7 +9,7 @@ This repository is the official implementation of our paper: **Towards Effective
 
 ## Datasets
 
-You can download Erya datasets in: https://huggingface.co/RUCAIBox. You should download datasets such as xint in it and place them in the `dataset` folder.
+You can download Erya datasets in: https://huggingface.co/datasets/RUCAIBox/Erya-dataset. You should download datasets such as xint in it and place them in the `dataset` folder.
 
 To be specific, the datasets and their corresponding title are:
 
@@ -32,7 +32,7 @@ python run_textbox.py --model=CPT --dataset=trans --pretrain_task=para --model_p
 
 
 ### Inference
-We have released Erya model in: https://huggingface.co/RUCAIBox, which you can use to generate translation as the following example.
+We have released Erya model in: https://huggingface.co/RUCAIBox/Erya, which you can use to generate translation as the following example.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
