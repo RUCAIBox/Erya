@@ -32,7 +32,7 @@ python run_textbox.py --model=CPT --dataset=trans --pretrain_task=para --model_p
 
 
 ### Inference
-We have released Erya model in HuggingFace, which you can use to generate translation as the following example.
+We have released Erya model in: https://huggingface.co/RUCAIBox, which you can use to generate translation as the following example.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
