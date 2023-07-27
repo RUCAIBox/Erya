@@ -33,9 +33,9 @@ To be specific, the datasets and their corresponding title are:
 After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
 
 ### Training
-You are able to tune your model which is stored in `model_path` on our dataset.
+You are able to tune your model which is stored in `model_path` on our dataset (like xint).
 ```
-python run_textbox.py --model=CPT --dataset=xint --model_path=[model_path] --epochs=[epoch_nums]
+python run_textbox.py --model=CPT --dataset=[dataset] --model_path=[model_path] --epochs=[epoch_nums]
 ```
 
 
