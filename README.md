@@ -1,11 +1,17 @@
 # Erya
-This repository is the official implementation of our paper: **Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation**. The implementation is based on the text generation library TextBox 2.0.
+This repository is the official implementation of NLPCC 2023 paper: **Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation**. The implementation is based on the text generation library [TextBox 2.0](https://github.com/RUCAIBox/TextBox).
 
 ## Introduction
 - We collect, clean, and classify ancient Chinese materials from various sources, forming the most extensive ancient Chinese resource Erya to date.
 - We devise Erya training method oriented towards ancient Chinese, composing two jointly-working tasks: disyllabic aligned substitution (DAS) and dual masked language model (DMLM).
 - We build a benchmark to judge ancient Chinese translation quality in different scenarios and evaluate the ancient Chinese translation capacities of various existing models.
 
+## Installation
+You should clone the TextBox repository and follow its instructions.
+```
+git clone https://github.com/RUCAIBox/TextBox.git && cd TextBox
+bash install.sh
+```
 
 ## Datasets
 
@@ -25,10 +31,10 @@ To be specific, the datasets and their corresponding title are:
 After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
 
 ### Training
+You are able to tune your model which is stored in `model_path` on our dataset.
 ```
-python run_textbox.py --model=CPT --dataset=trans --pretrain_task=para --model_path=fnlp/cpt --epochs=[epoch_nums] --uni_weight=0.7 --bi_weight=0.3
+python run_textbox.py --model=CPT --dataset=xint --model_path=[model_path] --epochs=[epoch_nums]
 ```
-`uni_weight` can be the weight of DAS loss, and `bi_weight` can be the weight of DMLM loss.
 
 
 ### Inference
