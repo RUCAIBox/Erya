@@ -1,5 +1,7 @@
 # Erya
-This repository is the official implementation of NLPCC 2023 paper: **Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation**. The implementation is based on the text generation library [TextBox 2.0](https://github.com/RUCAIBox/TextBox).
+This repository is the official implementation of NLPCC 2023 paper: **Towards Effective Ancient Chinese Translation: Dataset, Model, and Evaluation**. 
+
+The implementation is based on the text generation library [TextBox 2.0](https://github.com/RUCAIBox/TextBox).
 
 ## Introduction
 - We collect, clean, and classify ancient Chinese materials from various sources, forming the most extensive ancient Chinese resource Erya to date.
