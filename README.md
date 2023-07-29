@@ -33,7 +33,7 @@ To be specific, the datasets and their corresponding title are:
 After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
 
 ### Training
-You are able to tune Erya model on the dataset (like xint).
+You are able to tune Erya model on the translation dataset (like xint).
 ```
 python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya --epochs=[epoch_nums]
 ```
