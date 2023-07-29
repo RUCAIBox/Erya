@@ -33,20 +33,20 @@ To be specific, the datasets and their corresponding title are:
 After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
 
 ### Training
-You are able to tune your model which is stored in `model_path` on our dataset (like xint).
+You are able to tune Erya model on the dataset (like xint).
 ```
-python run_textbox.py --model=CPT --dataset=[dataset] --model_path=[model_path] --epochs=[epoch_nums]
+python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya --epochs=[epoch_nums]
 ```
 
 
 ### Inference
-We have released Erya model in: https://huggingface.co/RUCAIBox/Erya, which you can use to generate translation as the following example.
+We have released Erya model in: [https://huggingface.co/RUCAIBox/Erya](https://huggingface.co/RUCAIBox/Erya-zero), which you can use to generate translation as the following example.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
 
-tokenizer = BertTokenizer.from_pretrained("RUCAIBox/Erya")
-model = CPTForConditionalGeneration.from_pretrained("RUCAIBox/Erya")
+tokenizer = BertTokenizer.from_pretrained("RUCAIBox/Erya-zero")
+model = CPTForConditionalGeneration.from_pretrained("RUCAIBox/Erya-zero")
 
 input_ids = tokenizer("安世字子孺，少以父任为郎。", return_tensors='pt')
 input_ids.pop("token_type_ids")
