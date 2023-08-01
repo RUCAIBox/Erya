@@ -29,18 +29,11 @@ To be specific, the datasets and their corresponding title are:
 - xux: Xu Xiake's Travels
 
 
-## Fine-tuning, Inference and Evaluation
-After setting up the environment, you are able to conduct training, inference, and evaluation using our code in a pipeline.
-
-### Training
-You are able to tune Erya model on the translation dataset (like xint).
-```
-python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya --epochs=[epoch_nums]
-```
-
+## Fine-tuning and Inference
+After setting up the environment, you are able to use Erya model directly in the zero-shot scenario, or further tune the Erya4FT model for a better translation .
 
 ### Inference
-We have released Erya model in: [https://huggingface.co/RUCAIBox/Erya](https://huggingface.co/RUCAIBox/Erya-zero), which you can use to generate translation as the following example.
+We have released Erya model in: [https://huggingface.co/RUCAIBox/Erya](https://huggingface.co/RUCAIBox/Erya-zero), which you can use directly to generate translation as the following example.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
@@ -54,3 +47,10 @@ input_ids.pop("token_type_ids")
 pred_ids = model.generate(max_new_tokens=256, **input_ids)
 print(tokenizer.batch_decode(pred_ids, skip_special_tokens=True))
 ```
+
+### Training
+You are able to further tune Erya4FT model on the translation dataset (like xint).
+```
+python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya --epochs=[epoch_nums]
+```
+
