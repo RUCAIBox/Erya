@@ -43,7 +43,7 @@ pred_ids = model.generate(max_new_tokens=256, **input_ids)
 print(tokenizer.batch_decode(pred_ids, skip_special_tokens=True))
 ```
 
-### Training
+### Tuning
 We also released Erya4FT model in: [https://huggingface.co/RUCAIBox/Erya4FT](https://huggingface.co/RUCAIBox/Erya4FT), which you can further tune on the translation dataset.
 
 ```
