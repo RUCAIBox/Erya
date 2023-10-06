@@ -3,11 +3,6 @@ This repository is the official implementation of NLPCC 2023 paper: **Towards Ef
 
 The implementation is based on the text generation library [TextBox 2.0](https://github.com/RUCAIBox/TextBox).
 
-## Introduction
-- We collect, clean, and classify ancient Chinese materials from various sources, forming the most extensive ancient Chinese resource Erya to date.
-- We devise Erya training method oriented towards ancient Chinese, composing two jointly-working tasks: disyllabic aligned substitution (DAS) and dual masked language model (DMLM).
-- We build a benchmark to judge ancient Chinese translation quality in different scenarios and evaluate the ancient Chinese translation capacities of various existing models.
-
 ## Installation
 You should clone the TextBox repository and follow its instructions.
 ```
@@ -19,7 +14,7 @@ bash install.sh
 
 You can download Erya datasets in: https://huggingface.co/datasets/RUCAIBox/Erya-dataset. You should download datasets such as xint in it and place them in the `dataset` folder.
 
-To be specific, the datasets and their corresponding title are:
+To be specific, the datasets in Erya benchmark and their corresponding title are:
 
 - hans: Book of han
 - mings: Ming History
@@ -30,16 +25,16 @@ To be specific, the datasets and their corresponding title are:
 
 
 ## Fine-tuning and Inference
-After setting up the environment, you are able to use Erya model directly in the zero-shot scenario, or further tune the Erya4FT model for a better translation .
+After setting up the environment, you can either use Erya model in the zero-shot scenario, or further tune Erya4FT model for a better translation performance.
 
 ### Inference
-We have released Erya model in: [https://huggingface.co/RUCAIBox/Erya](https://huggingface.co/RUCAIBox/Erya-zero), which you can use directly to generate translation as the following example.
+We have released Erya model in: [https://huggingface.co/RUCAIBox/Erya](https://huggingface.co/RUCAIBox/Erya), which you can use directly to generate translation as below.
 
 ```
 from transformers import BertTokenizer, CPTForConditionalGeneration
 
-tokenizer = BertTokenizer.from_pretrained("RUCAIBox/Erya-zero")
-model = CPTForConditionalGeneration.from_pretrained("RUCAIBox/Erya-zero")
+tokenizer = BertTokenizer.from_pretrained("RUCAIBox/Erya")
+model = CPTForConditionalGeneration.from_pretrained("RUCAIBox/Erya")
 
 input_ids = tokenizer("安世字子孺，少以父任为郎。", return_tensors='pt')
 input_ids.pop("token_type_ids")
@@ -49,8 +44,9 @@ print(tokenizer.batch_decode(pred_ids, skip_special_tokens=True))
 ```
 
 ### Training
-You are able to further tune Erya4FT model on the translation dataset (like xint).
+We also released Erya4FT model in: [https://huggingface.co/RUCAIBox/Erya4FT](https://huggingface.co/RUCAIBox/Erya4FT), which you can further tune on the translation dataset.
+
 ```
-python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya --epochs=[epoch_nums]
+python run_textbox.py --model=CPT --dataset=[dataset] --model_path=RUCAIBox/Erya4FT --epochs=[epoch_nums]
 ```
 
